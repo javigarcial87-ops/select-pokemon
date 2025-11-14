@@ -1,16 +1,17 @@
 const button = document.getElementById('get-pokemon');
-const select = document.getElementById('pokemon-select').value
+const select = document.getElementById('pokemon-select')
 const info = document.getElementById('pokemon-info');
 
 button.addEventListener('click', () => {
-    select = select.value;
-    return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    const pokemonName = select.value;
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then(response => response.json())
     .then((data) => {
       info.innerHTML = `
         <li class="pokInfo">
             <h3>${data.name}</h3>
-            <p>${personaje.species}</p>
+            <img src="${data.sprites.front_default}" alt="${data.name}">
+            <p>${data.types[0].type.name}</p>
         </li>
 
       `
