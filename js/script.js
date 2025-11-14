@@ -3,8 +3,8 @@ const select = document.getElementById('pokemon-select').value
 const info = document.getElementById('pokemon-info');
 
 button.addEventListener('click', () => {
-    const pokemonName = select.value;
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    select = select.value;
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
     .then(response => response.json())
     .then((data) => {
       info.innerHTML = `
